@@ -82,7 +82,7 @@ export default function SignInPage() {
       console.error("GitHub sign-in failed:", error);
     }
   };
-  
+
   return (
     <div className="flex min-h-[70vh] items-center justify-center px-4 py-10">
       <div
@@ -296,6 +296,7 @@ export default function SignInPage() {
                 px-4 py-3
                 text-sm font-medium
                 text-black
+                cursor-pointer
                 transition
                 hover:bg-black/[0.03]
 
@@ -327,6 +328,7 @@ export default function SignInPage() {
                 text-sm font-medium
                 text-black
                 transition
+                cursor-pointer
                 hover:bg-black/[0.03]
 
                 dark:border-white/10
