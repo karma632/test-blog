@@ -122,55 +122,90 @@ export default function PostCards() {
 
         {/* LOGIN MODAL */}
         {showLoginModal && (
-         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-end">
-          <button
-            onClick={() => setShowLoginModal(false)}
+          <div
             className="
-              w-full
-              cursor-pointer
-              rounded-full
-              border border-black/10
-              px-5 py-2.5
-              text-sm font-medium
-              text-black
-              transition
-              hover:bg-black
-              hover:text-white
-
-              dark:border-white/10
-              dark:text-white
-              dark:hover:bg-white
-              dark:hover:text-black
-
-              sm:w-auto
+              fixed inset-0 z-50
+              flex items-center justify-center
+              bg-black/40
+              px-4
+              overflow-hidden
+              backdrop-blur-sm
             "
           >
-            Cancel
-          </button>
+            <div
+              className="
+                w-full max-w-md
+                rounded-[1.5rem]
+                border border-black/10
+                bg-white
+                p-6
+                text-black
+                shadow-xl
 
-          <Link
-            href="/sign-in"
-            className="
-              w-full
-              rounded-full
-              bg-black
-              px-5 py-2.5
-              text-center
-              text-sm font-medium
-              text-white
-              transition
-              hover:bg-black/80
+                dark:border-white/10
+                dark:bg-neutral-900
+                dark:text-white
+              "
+            >
 
-              dark:bg-white
-              dark:text-black
-              dark:hover:bg-white/80
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-red-500">
+                Login required
+              </p>
 
-              sm:w-auto
-            "
-          >
-            Sign in
-          </Link>
-        </div>
+              <h2 className="mt-2 text-xl font-semibold">
+                You are not logged in
+              </h2>
+
+              <p className="mt-2 text-sm leading-6 text-black/50 dark:text-white/50">
+                You have to be logged in to bookmark a post.
+              </p>
+
+              <div className="mt-6 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
+
+                <button
+                  onClick={() => setShowLoginModal(false)}
+                  className="
+                    cursor-pointer
+                    rounded-full
+                    border border-black/10
+                    px-5 py-2.5
+                    text-sm font-medium
+                    text-black
+                    transition
+                    hover:bg-black
+                    hover:text-white
+
+                    dark:border-white/10
+                    dark:text-white
+                    dark:hover:bg-white
+                    dark:hover:text-black
+                  "
+                >
+                  Cancel
+                </button>
+
+                <Link
+                  href="/sign-in"
+                  className="
+                    rounded-full
+                    bg-black
+                    px-5 py-2.5
+                    text-sm font-medium
+                    text-white
+                    transition
+                    hover:bg-black/80
+
+                    dark:bg-white
+                    dark:text-black
+                    dark:hover:bg-white/80
+                  "
+                >
+                  Sign in
+                </Link>
+
+              </div>
+            </div>
+          </div>
         )}
 
         {/* LOADING */}
