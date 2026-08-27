@@ -70,6 +70,7 @@ export default function PostCards() {
   // GET BOOKMARKS
   const { data: bookmarks } = useQuery({
     queryKey: ["bookmarks"],
+    enabled: !!session?.user,
     queryFn: async () => {
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/bookmarks`,
