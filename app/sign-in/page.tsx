@@ -55,6 +55,34 @@ export default function SignInPage() {
     }
   };
 
+  const handleGoogleSignIn = async () => {
+    console.log("Google sign-in started");
+
+    try {
+      const result = await authClient.signIn.social({
+        provider: "google",
+    });
+
+      console.log("Google sign-in result:", result);
+    } catch (error) {
+      console.error("Google sign-in failed:", error);
+    }
+  };
+
+  const handleGithubSignIn = async () => {
+    console.log("GitHub sign-in started");
+
+    try {
+      const result = await authClient.signIn.social({
+        provider: "github",
+      });
+
+      console.log("GitHub sign-in result:", result);
+    } catch (error) {
+      console.error("GitHub sign-in failed:", error);
+    }
+  };
+  
   return (
     <div className="flex min-h-[70vh] items-center justify-center px-4 py-10">
       <div
@@ -259,6 +287,7 @@ export default function SignInPage() {
             {/* Google */}
             <button
               type="button"
+              onClick={handleGoogleSignIn}
               className="
                 flex items-center justify-center gap-2
                 rounded-full
@@ -288,6 +317,7 @@ export default function SignInPage() {
             {/* GitHub */}
             <button
               type="button"
+              onClick={handleGithubSignIn}
               className="
                 flex items-center justify-center gap-2
                 rounded-full
