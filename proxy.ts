@@ -1,10 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import { authClient } from "./lib/auth-client";
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  const protectedRoutes = ["/dashboard", "/bookmark"];
+  const protectedRoutes = ["/dashboard", "/bookmarks"];
 
   if (protectedRoutes.some((route) => pathname.startsWith(route))) {
     const sessionCookie = request.cookies.get("better-auth.session_token");
@@ -18,5 +17,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/dashboard/:path*", "/bookmark/:path*"],
+  matcher: ["/dashboard/:path*", "/bookmarks/:path*"],
 };

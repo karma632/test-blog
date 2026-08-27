@@ -10,6 +10,7 @@ export default function BookmarksPage() {
   // GET BOOKMARKS
   const { data, isPending } = useQuery({
     queryKey: ["bookmarks"],
+    
     queryFn: async () => {
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/bookmarks`,
