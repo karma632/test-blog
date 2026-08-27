@@ -9,7 +9,7 @@ export default function PostDetails({ id }: { id: string }) {
 
     queryFn: async () => {
       const response = await fetch(
-        `${process.env.API_URL}/posts/${id}`
+        `${process.env.NEXT_PUBLIC_API_URL}/posts/${id}`
       );
 
       if (!response.ok) {

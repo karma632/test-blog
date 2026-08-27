@@ -11,6 +11,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 
 export default function PostCards() {
+  
   const { data: session } = authClient.useSession();
   const queryClient = useQueryClient();
 
@@ -21,7 +22,7 @@ export default function PostCards() {
     queryKey: ["posts"],
     queryFn: async () => {
       const response = await fetch(
-        `${process.env.API_URL}/posts/all-post"`,
+        `${process.env.NEXT_PUBLIC_API_URL}/posts/all-post`,
         {
           credentials: "include",
         }
@@ -39,7 +40,7 @@ export default function PostCards() {
   const saveBookmark = useMutation({
     mutationFn: async (articleId: string) => {
       const response = await fetch(
-        `${process.env.API_URL}/bookmarks/${articleId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/bookmarks/${articleId}`,
         {
           method: "POST",
           credentials: "include",
@@ -71,7 +72,7 @@ export default function PostCards() {
     queryKey: ["bookmarks"],
     queryFn: async () => {
       const response = await fetch(
-        `${process.env.API_URL}/bookmarks`,
+        `${process.env.NEXT_PUBLIC_API_URL}/bookmarks`,
         {
           credentials: "include",
         }

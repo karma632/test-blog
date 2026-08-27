@@ -12,7 +12,7 @@ export default function BookmarksPage() {
     queryKey: ["bookmarks"],
     queryFn: async () => {
       const response = await fetch(
-        `${process.env.API_URL}/bookmarks`,
+        `${process.env.NEXT_PUBLIC_API_URL}/bookmarks`,
         {
           credentials: "include",
         }
@@ -29,7 +29,7 @@ export default function BookmarksPage() {
   // REMOVE BOOKMARK
   const removeBookmark = useMutation({
     mutationFn: (articleId: string) =>
-      fetch(`${process.env.API_URL}/bookmarks/${articleId}`, {
+      fetch(`${process.env.NEXT_PUBLIC_API_URL}/bookmarks/${articleId}`, {
         method: "DELETE",
         credentials: "include",
       }).then((res) => {
