@@ -9,7 +9,7 @@ export default function PostDetails({ id }: { id: string }) {
 
     queryFn: async () => {
       const response = await fetch(
-        `http://localhost:3002/posts/${id}`
+        `${process.env.API_URL}/posts/${id}`
       );
 
       if (!response.ok) {

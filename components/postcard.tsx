@@ -21,7 +21,7 @@ export default function PostCards() {
     queryKey: ["posts"],
     queryFn: async () => {
       const response = await fetch(
-        "http://localhost:3002/posts/all-post",
+        `${process.env.API_URL}/posts/all-post"`,
         {
           credentials: "include",
         }
@@ -39,7 +39,7 @@ export default function PostCards() {
   const saveBookmark = useMutation({
     mutationFn: async (articleId: string) => {
       const response = await fetch(
-        `http://localhost:3002/bookmarks/${articleId}`,
+        `${process.env.API_URL}/bookmarks/${articleId}`,
         {
           method: "POST",
           credentials: "include",
@@ -71,7 +71,7 @@ export default function PostCards() {
     queryKey: ["bookmarks"],
     queryFn: async () => {
       const response = await fetch(
-        "http://localhost:3002/bookmarks",
+        `${process.env.API_URL}/bookmarks`,
         {
           credentials: "include",
         }

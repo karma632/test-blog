@@ -18,7 +18,7 @@ export default function UsersPage() {
     queryKey: ["all-users"],
     queryFn: async () => {
       const response = await fetch(
-        "http://localhost:3002/user/all-users"
+        `${process.env.API_URL}/user/all-users`
       );
 
       if (!response.ok) {
@@ -41,7 +41,7 @@ export default function UsersPage() {
       role: string;
     }) => {
       const response = await fetch(
-        `http://localhost:3002/user/${id}/role`,
+        `${process.env.API_URL}/user/${id}/role`,
         {
           method: "PATCH",
           headers: {
