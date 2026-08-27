@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+.dark body {
+  background: #0a0a0a;
+  color: #fff;
+}
+
 :root {
   --background: #f7f7f2;
   --foreground: #111111;
@@ -18,7 +26,109 @@ html {
 
 body {
   margin: 0;
-  background: var(--background);
-  color: var(--foreground);
+   background: #f8f7f4;
+  color: #111;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.hero {
+  min-height: 560px;
+  padding: 65px 20px 70px;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.contactcard{
+  margin-top: 8rem;
+}
+
+.latpost{
+  margin-top: 3rem;
+}
+
+.issue {
+  margin: 24px 0 10px;
+  color: var(--muted);
+  font:
+    11px "DM Mono",
+    monospace;
+  letter-spacing: 1.4px;
+}
+
+.hero h1 {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.hero h1 {
+  font-size: clamp(43px, 7vw, 82px);
+  line-height: 0.98;
+  font-weight: 800;
+}
+
+.hero-copy {
+  max-width: 545px;
+  margin: 19px auto 27px;
+  color: gray;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.grid-text h1{
+  font-size: 35px;
+}
+
+/* .search {
+  width: min(480px, 100%);
+  margin: auto;
+  height: 50px;
+  display: flex;
+  padding: 4px 5px 4px 18px;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: lightblue;
+}
+
+.search input {
+  flex: 1;
+  border: 0;
+  outline: 0;
+  color: var(--ink);
+  background: transparent;
+  font-size: 13px;
+}
+.search button {
+  width: 39px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #09203d;
+  font-size: 25px;
+  line-height: 1;
+} */
+.code-mark {
+  color:gray;
+  position: absolute;
+  font:
+    500 13px "DM Mono",
+    monospace;
+  z-index: 0;
+}
+
+.mark-c {
+  left: 17%;
+  bottom: 15%;
+  font-size: 30px;
+}
+.mark-d {
+  right: 18%;
+  bottom: 16%;
 }
