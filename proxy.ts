@@ -6,7 +6,9 @@ export function proxy(request: NextRequest) {
   const protectedRoutes = ["/dashboard", "/bookmarks"];
 
   if (protectedRoutes.some((route) => pathname.startsWith(route))) {
-    const sessionCookie = request.cookies.get("better-auth.session_token");
+    const sessionCookie = request.cookies.get(
+      "__Secure-better-auth.session_token"
+    );
 
     if (!sessionCookie) {
       return NextResponse.redirect(new URL("/", request.url));
