@@ -26,7 +26,7 @@ export default function SignInPage() {
         email,
         password,
       });
-      
+
       console.log("LOGIN DATA:", data);
       console.log("LOGIN ERROR:", error);
       console.log("LOGIN USER:", data?.user);
@@ -66,6 +66,7 @@ export default function SignInPage() {
     try {
       const result = await authClient.signIn.social({
         provider: "google",
+        callbackURL: "/",
     });
 
       console.log("Google sign-in result:", result);
