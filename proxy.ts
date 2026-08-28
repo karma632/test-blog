@@ -1,6 +1,6 @@
-// import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-// export function proxy(request: NextRequest) {
+export function proxy(request: NextRequest) {
 //   const { pathname } = request.nextUrl;
 
 //   const secureCookie = request.cookies.get(
@@ -51,4 +51,4 @@
 
 // export const config = {
 //   matcher: ["/dashboard/:path*", "/bookmark/:path*"],
-// };
+};
