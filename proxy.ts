@@ -3,12 +3,12 @@ import { NextRequest, NextResponse } from "next/server";
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  const protectedRoutes = ["/dashboard", "/bookmarks"];
+  const protectedRoutes = ["/dashboard", "/bookmark"];
 
   if (protectedRoutes.some((route) => pathname.startsWith(route))) {
-    const sessionCookie = request.cookies.get(
-      "__Secure-better-auth.session_token"
-    );
+    const sessionCookie =
+      request.cookies.get("__Secure-better-auth.session_token") ||
+      request.cookies.get("better-auth.session_token");
 
     if (!sessionCookie) {
       return NextResponse.redirect(new URL("/", request.url));
@@ -19,5 +19,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/dashboard/:path*", "/bookmarks/:path*"],
+  matcher: ["/dashboard/:path*", "/bookmark/:path*"],
 };
