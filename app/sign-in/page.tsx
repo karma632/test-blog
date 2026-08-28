@@ -26,11 +26,11 @@ export default function SignInPage() {
         email,
         password,
       });
-
+      
       console.log("LOGIN DATA:", data);
-console.log("LOGIN ERROR:", error);
-console.log("LOGIN USER:", data?.user);
-console.log("LOGIN ROLE:", (data?.user as { role?: string })?.role);
+      console.log("LOGIN ERROR:", error);
+      console.log("LOGIN USER:", data?.user);
+      console.log("LOGIN ROLE:", (data?.user as { role?: string })?.role);
 
       if (error) {
         toast.error(error.message);
