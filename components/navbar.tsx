@@ -14,6 +14,7 @@ export default function NavBar() {
   const user = session?.user;
   const role = (user as { role?: string })?.role;
   const initial = user?.name?.charAt(0).toUpperCase() ?? "?";
+  console.log("NAV SESSION:", session);
 
   return (
     <div>
