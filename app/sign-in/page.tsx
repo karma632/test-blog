@@ -62,17 +62,13 @@ export default function SignInPage() {
 
   const handleGoogleSignIn = async () => {
     console.log("Google sign-in started");
+     
+        const data = await authClient.signIn.social({
+          provider: "google",
+        });
+  
+      console.log("GitHub sign-in result:", data);
 
-    try {
-      const result = await authClient.signIn.social({
-        provider: "google",
-        callbackURL: "/",
-    });
-
-      console.log("Google sign-in result:", result);
-    } catch (error) {
-      console.error("Google sign-in failed:", error);
-    }
   };
 
   const handleGithubSignIn = async () => {
