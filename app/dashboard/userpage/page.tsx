@@ -41,7 +41,7 @@ export default function UsersPage() {
       role: string;
     }) => {
       const response = await fetch(
-        "/api/user/${id}/role",
+        `/api/user/${id}/role`,
         {
           method: "PATCH",
           headers: {
