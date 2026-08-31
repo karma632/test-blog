@@ -67,8 +67,6 @@ export default function SignInPage() {
           provider: "google",
         });
   
-      console.log("GitHub sign-in result:", data);
-
   };
 
   const handleGithubSignIn = async () => {
