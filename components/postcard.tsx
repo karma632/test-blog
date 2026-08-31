@@ -40,7 +40,7 @@ export default function PostCards() {
   const saveBookmark = useMutation({
     mutationFn: async (articleId: string) => {
       const response = await fetch(
-        "api/bookmarks/${articleId}",
+        `/api/bookmarks/${articleId}`,
         {
           method: "POST",
           credentials: "include",
@@ -73,7 +73,7 @@ export default function PostCards() {
     enabled: !!session?.user,
     queryFn: async () => {
       const response = await fetch(
-        "api/bookmarks",
+        "/api/bookmarks",
         {
           credentials: "include",
         }
