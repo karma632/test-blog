@@ -64,7 +64,7 @@ export default function UsersPage() {
     onSuccess: (data) => {
       console.log("ROLE UPDATED:", data);
 
-      toast.success("User role updated successfully");
+      toast.success("User role changed successfully");
 
       queryClient.invalidateQueries({
         queryKey: ["all-users"],
