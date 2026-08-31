@@ -9,7 +9,7 @@ export default function PostDetails({ id }: { id: string }) {
 
     queryFn: async () => {
       const response = await fetch(
-        "/api/posts/${id}"
+        `/api/posts/${id}`
       );
 
       if (!response.ok) {
