@@ -22,7 +22,7 @@ export default function PostCards() {
     queryKey: ["posts"],
     queryFn: async () => {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/posts/all-post`,
+        "api/posts/all-post",
         {
           credentials: "include",
         }
@@ -40,7 +40,7 @@ export default function PostCards() {
   const saveBookmark = useMutation({
     mutationFn: async (articleId: string) => {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/bookmarks/${articleId}`,
+        "api/bookmarks/${articleId}",
         {
           method: "POST",
           credentials: "include",
@@ -73,7 +73,7 @@ export default function PostCards() {
     enabled: !!session?.user,
     queryFn: async () => {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/bookmarks`,
+        "api/bookmarks",
         {
           credentials: "include",
         }
