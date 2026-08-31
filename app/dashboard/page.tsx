@@ -37,7 +37,7 @@ export default function DashboardPage() {
   const { isPending, data } = useQuery({
     queryKey: ["posts"],
     queryFn: async () => {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts/all-post`);
+      const response = await fetch("/api/posts/all-post");
 
       if (!response.ok) {
         throw new Error("Failed to fetch posts");
@@ -79,7 +79,7 @@ export default function DashboardPage() {
   //function to create post
   const createPost = useMutation({
     mutationFn: async (formData: typeof INITIAL_FORM_DATA) => {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`, {
+      const response = await fetch("/api/posts", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -120,7 +120,7 @@ export default function DashboardPage() {
   
   const deletePost = useMutation({
     mutationFn: async (id: string) => {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts/${id}`, {
+      const response = await fetch("/api/posts/${id}", {
         method: "DELETE",
         credentials: "include",
       });
@@ -151,7 +151,7 @@ export default function DashboardPage() {
   const allUsers = useQuery({
     queryKey: ["all-users"],
     queryFn: async()=>{
-    const response = await fetch (`${process.env.NEXT_PUBLIC_API_URL}/user/all-users`);
+    const response = await fetch ("/apiuser/all-users");
        if (!response.ok) {
         throw new Error("Failed to fetch users");
       }
@@ -163,7 +163,7 @@ export default function DashboardPage() {
   //function to edit the post details
   const updatePost = useMutation({
     mutationFn: async ({ id, data }: { id: string; data: typeof formData }) => {
-      const response = await fetch(`${process.env.API_URL}/posts/${id}`, {
+      const response = await fetch("/api/posts/${id}", {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
