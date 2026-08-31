@@ -91,7 +91,7 @@ export default function DashboardPage() {
       if (!response.ok) {
         throw new Error("Failed to create post");
       }
-      
+
 
       return response.json();
     },
@@ -121,7 +121,7 @@ export default function DashboardPage() {
   
   const deletePost = useMutation({
     mutationFn: async (id: string) => {
-      const response = await fetch("/api/posts/${id}", {
+      const response = await fetch(`/api/posts/${id}`, {
         method: "DELETE",
         credentials: "include",
       });
