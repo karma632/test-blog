@@ -91,6 +91,7 @@ export default function DashboardPage() {
       if (!response.ok) {
         throw new Error("Failed to create post");
       }
+      
 
       return response.json();
     },
@@ -151,7 +152,7 @@ export default function DashboardPage() {
   const allUsers = useQuery({
     queryKey: ["all-users"],
     queryFn: async()=>{
-    const response = await fetch ("/apiuser/all-users");
+    const response = await fetch ("/api/user/all-users");
        if (!response.ok) {
         throw new Error("Failed to fetch users");
       }
