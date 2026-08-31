@@ -65,7 +65,7 @@ export default function SignInPage() {
      
         const data = await authClient.signIn.social({
           provider: "google",
-          callbackURL: "/dashboard",
+          callbackURL: "/posts",
         });
   
   };
