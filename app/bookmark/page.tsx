@@ -30,7 +30,7 @@ export default function BookmarksPage() {
   // REMOVE BOOKMARK
   const removeBookmark = useMutation({
     mutationFn: (articleId: string) =>
-      fetch(`/api/${articleId}`, {
+      fetch(`/api/bookmarks/${articleId}`, {
         method: "DELETE",
         credentials: "include",
       }).then((res) => {
