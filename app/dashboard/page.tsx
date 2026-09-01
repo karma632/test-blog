@@ -116,9 +116,9 @@ export default function DashboardPage() {
       toast.error("Failed to publish post");
     },
   });
+  
 
   //function to delete post
-  
   const deletePost = useMutation({
     mutationFn: async (id: string) => {
       const response = await fetch(`/api/posts/${id}`, {

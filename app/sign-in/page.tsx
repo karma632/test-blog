@@ -65,7 +65,7 @@ export default function SignInPage() {
      
         const data = await authClient.signIn.social({
           provider: "google",
-          callbackURL: "/",
+          callbackURL: "/bookmark",
         });
   
   };
@@ -76,7 +76,7 @@ export default function SignInPage() {
     try {
       const result = await authClient.signIn.social({
         provider: "github",
-
+        callbackURL: "/bookmark",
       });
 
       console.log("GitHub sign-in result:", result);
