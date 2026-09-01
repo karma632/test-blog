@@ -361,26 +361,6 @@ export default function DashboardPage() {
                       Remove image
                     </button>
 
-                    {/* Change image */}
-                    <label
-                      htmlFor="image"
-                      className="
-                        cursor-pointer
-                        rounded-full
-                        border border-black/10
-                        px-4 py-2
-                        text-xs font-medium
-                        transition
-                        hover:bg-black
-                        hover:text-white
-
-                        dark:border-white/10
-                        dark:hover:bg-white
-                        dark:hover:text-black
-                      "
-                    >
-                      Change image
-                    </label>
                   </div>
                 </div>
               ) : (
