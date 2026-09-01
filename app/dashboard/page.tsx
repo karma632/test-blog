@@ -164,7 +164,7 @@ export default function DashboardPage() {
   //function to edit the post details
   const updatePost = useMutation({
     mutationFn: async ({ id, data }: { id: string; data: typeof formData }) => {
-      const response = await fetch("/api/posts/${id}", {
+      const response = await fetch(`/api/posts/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -314,72 +314,135 @@ export default function DashboardPage() {
 
             {/* IMAGE */}
             <div>
-             
-             {formData.image ? (
-                <div className="relative flex min-h-[170px] items-center justify-center rounded-2xl border-2 border-dashed border-black/10 bg-black/[0.015] p-4 dark:border-white/10 dark:bg-white/[0.02]">
-                  <img
-                    src={formData.image}
-                    alt="Cover image"
-                    className="max-h-[200px] max-w-full rounded-xl object-contain"
-                  />
-                </div>
-              ) : (
-                <>
-                  <label
-                    htmlFor="image"
-                    className="
-                      group flex min-h-[170px]
-                      cursor-pointer flex-col
-                      items-center justify-center
-                      rounded-2xl
-                      border-2 border-dashed
-                      border-black/10
-                      bg-black/[0.015]
-                      px-6 text-center
-                      transition
+              {formData.image ? (
+                <div className="relative overflow-hidden rounded-2xl border border-black/10 bg-black/[0.015] p-4 dark:border-white/10 dark:bg-white/[0.02]">
+                  
+                  {/* IMAGE */}
+                  <div className="flex min-h-[170px] items-center justify-center">
+                    <img
+                      src={formData.image}
+                      alt="Cover image"
+                      className="max-h-[200px] max-w-full rounded-xl object-contain"
+                    />
+                  </div>
 
-                      hover:border-black/25
-                      hover:bg-black/[0.03]
+                  {/* IMAGE ACTIONS */}
+                  <div className="mt-4 flex justify-center gap-2">
+                    
+                    {/* Remove image */}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setFormData((prev) => ({
+                          ...prev,
+                          image: "",
+                        }));
 
-                      dark:border-white/10
-                      dark:bg-white/[0.02]
-                      dark:hover:border-white/25
-                      dark:hover:bg-white/[0.04]
-                    "
-                  >
-                    <div
+                        // Reset file input so the same image can be selected again
+                        const input = document.getElementById(
+                          "image"
+                        ) as HTMLInputElement;
+
+                        if (input) {
+                          input.value = "";
+                        }
+                      }}
                       className="
-                        flex h-12 w-12
-                        items-center justify-center
                         rounded-full
-                        bg-black/5
-                        text-xl
+                        border border-red-500/20
+                        px-4 py-2
+                        text-xs font-medium
+                        text-red-500
                         transition
-
-                        group-hover:bg-black
-                        group-hover:text-white
-
-                        dark:bg-white/10
-                        dark:text-white
-                        dark:group-hover:bg-white
-                        dark:group-hover:text-black
+                        hover:bg-red-500
+                        hover:text-white
                       "
                     >
-                      +
-                    </div>
+                      Remove image
+                    </button>
 
-                    <p className="mt-3 text-sm font-medium">
-                      Select an image
-                    </p>
+                    {/* Change image */}
+                    <label
+                      htmlFor="image"
+                      className="
+                        cursor-pointer
+                        rounded-full
+                        border border-black/10
+                        px-4 py-2
+                        text-xs font-medium
+                        transition
+                        hover:bg-black
+                        hover:text-white
 
-                    <p className="mt-1 text-xs text-black/40 dark:text-white/40">
-                      PNG, JPG or WEBP
-                    </p>
-                  </label>
-                </>
+                        dark:border-white/10
+                        dark:hover:bg-white
+                        dark:hover:text-black
+                      "
+                    >
+                      Change image
+                    </label>
+                  </div>
+                </div>
+              ) : (
+                <label
+                  htmlFor="image"
+                  className="
+                    group flex min-h-[170px]
+                    cursor-pointer flex-col
+                    items-center justify-center
+                    rounded-2xl
+                    border-2 border-dashed
+                    border-black/10
+                    bg-black/[0.015]
+                    px-6 text-center
+                    transition
+
+                    hover:border-black/25
+                    hover:bg-black/[0.03]
+
+                    dark:border-white/10
+                    dark:bg-white/[0.02]
+                    dark:hover:border-white/25
+                    dark:hover:bg-white/[0.04]
+                  "
+                >
+                  <div
+                    className="
+                      flex h-12 w-12
+                      items-center justify-center
+                      rounded-full
+                      bg-black/5
+                      text-xl
+                      transition
+
+                      group-hover:bg-black
+                      group-hover:text-white
+
+                      dark:bg-white/10
+                      dark:text-white
+                      dark:group-hover:bg-white
+                      dark:group-hover:text-black
+                    "
+                  >
+                    +
+                  </div>
+
+                  <p className="mt-3 text-sm font-medium">
+                    Select an image
+                  </p>
+
+                  <p className="mt-1 text-xs text-black/40 dark:text-white/40">
+                    PNG, JPG or WEBP
+                  </p>
+                </label>
               )}
 
-              <input id="image" type="file" accept="image/png,image/jpeg,image/webp" className="hidden"
+              {/* FILE INPUT */}
+              <input
+                id="image"
+                type="file"
+                accept="image/png,image/jpeg,image/webp"
+                className="hidden"
                 onChange={async (e) => {
                   const file = e.target.files?.[0];
 
@@ -399,7 +462,6 @@ export default function DashboardPage() {
                   }
                 }}
               />
-              
             </div>
 
             {/* TITLE */}
