@@ -37,7 +37,7 @@ export default function SignUpPage() {
       toast.success("Account created successfully!");
 
       setTimeout(() => {
-        router.push("/sign-in");
+        router.push("/bookmark");
       }, 1500);
     } catch (err) {
       console.error("Sign up failed:", err);
